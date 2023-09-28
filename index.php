@@ -5,7 +5,7 @@ com o banco
 de dados*/
 $servername = "localhost";
 //você deu nome ao banco de dados
-$database = "";
+$database = ""; //func2c ou func2d
 $username = "root";
 $password = "";
 
@@ -26,7 +26,8 @@ $botao = $_POST["botao"];
 
 echo $id." ".$nome." ".$cpf." ".$botao;
 
-$sql_cadastrar = "INSERT INTO funcionarios (id, nome, cpf) VALUES('','$nome', '$cpf')";
+$sql_cadastrar = "INSERT INTO funcionarios 
+    (id, nome, cpf) VALUES('','$nome', '$cpf')";
 
 ?>
 <html>
