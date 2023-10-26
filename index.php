@@ -9,6 +9,7 @@ $database = "func2c"; //func2c ou func2d
 $username = "root";
 $password = "";
 
+
 $conexao = mysqli_connect(
     $servername, $username, 
     $password,$database
