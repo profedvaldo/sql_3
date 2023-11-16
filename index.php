@@ -1,11 +1,11 @@
 <?php
-//SISTEMINHA C.E.R.A 
+
 /*aqui vamos conectar 
 com o banco 
 de dados*/
 $servername = "localhost";
 //você deu nome ao banco de dados
-$database = "func2d"; //func2c ou func2d
+$database = "func2ccc"; //func2c ou func2d
 $username = "root";
 $password = "";
 
@@ -35,6 +35,8 @@ if(empty($botao)){
     $sql = "DELETE FROM funcionarios WHERE id = '$id'";
 }else if($botao == "Recuperar"){
     $sql_mostra_cad = "SELECT * FROM funcionarios WHERE nome like '%$pesquisa%'";
+}else if($botao == "Alterar"){
+    $sql = "UPDATE funcionarios SET nome = '$nome', cpf = '$cpf' WHERE id = $id";
 }
 
 //aqui vou tratar erros nas operações C.E.R.A
@@ -60,15 +62,17 @@ if(!empty($selecionado)){
         $cpf = $linha["cpf"];
     }                      
 }
-
-
-
 ?>
 <html>
+    <head>
+        <title>Sistema C.E.R.A.</title>
+    </head>
     <body>
+
     <form name = "func" method = "post" >
         <label>ID</label>
-        <input type ="text" name = "id" value="<?php echo $id; ?>"/><br />
+        <input type ="text" name = "idi" value="<?php echo $id; ?>" disabled /><br />
+        <input type ="hidden" name = "id" value="<?php echo $id; ?>"/><br />
         <label>Nome</label>
         <input type ="text" name = "nome" value="<?php echo $nome; ?>"/><br />
         <label>CPF</label>
@@ -78,6 +82,7 @@ if(!empty($selecionado)){
         <br />
         <input type="text" name = "pesquisa" />
         <input type="submit" name = "botao" value = "Recuperar" />
+        <input type="submit" name = "botao" value = "Alterar" />
     </form>
     <table>
         <tr>
